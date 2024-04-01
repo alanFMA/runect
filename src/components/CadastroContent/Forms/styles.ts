@@ -14,6 +14,16 @@ export const TextContent = styled.div`
   width: 75%;
   text-align: justify;
 
+  @media screen and (max-width: 901px) {
+    width: 77%;
+    font-size: 77%;
+    justify-content: center;
+  }
+
+  h1 {
+    font-weight: bold;
+  }
+
   p:first-child {
     letter-spacing: 0.3px;
   }
