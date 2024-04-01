@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import XBack from '../assets/x-back.png';
+import XBack from '../assets/logosppopacity.png';
 
 export default createGlobalStyle`
   * {
@@ -14,10 +14,12 @@ export default createGlobalStyle`
     background-image: url(${XBack});
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 80%;
     color: #FFF;
     -webkit-font-smoothing: antialiased;
     display: flex;
     justify-content: center;
+    z-index: -1000;
   }
 
   body, input, button {

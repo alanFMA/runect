@@ -20,9 +20,14 @@ export const TextContent = styled.div`
 
   p {
     margin-top: 15px;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
   }
 
   span {
-    color: #fec200;
+    color: #31ac47;
   }
 `;

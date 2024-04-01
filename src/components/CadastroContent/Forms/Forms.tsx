@@ -2,8 +2,10 @@ import React, { useState, ChangeEvent } from 'react';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import EventIcon from '@mui/icons-material/Event';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
+import LinkIcon from '@mui/icons-material/Link';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { Modal, Typography } from '@mui/material';
@@ -14,7 +16,7 @@ import { TextContent } from './styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FEC200', // Cor principal (linha, foco, etc.)
+      main: '#31AC47', // Cor principal (linha, foco, etc.)
     },
     text: {
       primary: '#FFF',
@@ -37,10 +39,13 @@ export default function Forms() {
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
+  const [date, setDate] = useState('');
+  const [dateError, setDateError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [nameError, setNameError] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const [openModal, setOpenModal] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const handleInputEmailChange = ({
     target,
@@ -58,7 +63,6 @@ export default function Forms() {
     const { value } = target;
     setFullName(value);
 
-    // Exemplo de validação simples: Nome deve ter pelo menos 5 caracteres
     if (value.length < 5) {
       setNameError('Nome deve ter pelo menos 5 caracteres');
     } else {
@@ -69,10 +73,12 @@ export default function Forms() {
   const handleInputPhoneChange = ({
     target,
   }: ChangeEvent<HTMLInputElement>) => {
-    const { value } = target;
+    let { value } = target;
+
+    value = value.slice(0, 15);
+
     setPhone(value);
 
-    // Lógica de validação para o número de telefone
     const isValidPhone = /^(\([0-9]{2}\)\s?|[0-9]{2}\s?)[0-9]{5}-?[0-9]{4}$/;
     const isPhoneValid = isValidPhone.test(value);
 
@@ -80,6 +86,34 @@ export default function Forms() {
       setPhoneError('Número de telefone inválido');
     } else {
       setPhoneError('');
+    }
+  };
+
+  const handleInputDateChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    let { value } = target;
+
+    value = value.slice(0, 10);
+
+    let formattedValue = value.replace(/\D/g, '');
+
+    if (formattedValue.length > 2) {
+      formattedValue = formattedValue.replace(/^(\d{2})(\d{0,2})/, '$1/$2');
+    }
+
+    if (formattedValue.length > 5) {
+      formattedValue = formattedValue.replace(
+        /^(\d{2})\/?(\d{2})(\d{0,4})/,
+        '$1/$2/$3',
+      );
+    }
+
+    setDate(formattedValue);
+
+    const isValidDate = /^\d{2}\/\d{2}\/\d{4}$/;
+    if (!isValidDate.test(formattedValue)) {
+      setDateError('Data inválida. Utilize o formato DD/MM/YYYY.');
+    } else {
+      setDateError('');
     }
   };
 
@@ -108,10 +142,19 @@ export default function Forms() {
   };
 
   const HandleFormSubmit = () => {
-    if (!nameError && !emailError && !phoneError) {
+    if (
+      !nameError &&
+      !emailError &&
+      !phoneError &&
+      !dateError &&
+      fullName &&
+      date &&
+      email &&
+      phone
+    ) {
       const iframe = document.createElement('iframe');
       iframe.style.display = 'none';
-      iframe.src = `https://docs.google.com/forms/d/e/1FAIpQLSfYwR1petegUsz_XolHKBguuWIR2kKN_Zeuog8XIbun9NGTIg/formResponse?entry.1281333293=${fullName}&entry.1906051504=${email}&entry.975664923=${phone}`;
+      iframe.src = `https://docs.google.com/forms/d/e/1FAIpQLSdVCrVmYGiOHKr3ZnK4nORVlkzZf09flrOGojLZzZvlj9CD_g/formResponse?entry.1404004919=${fullName}&entry.823484063=${date}&entry.1019781588=${phone}&entry.926534741=${email}`;
       document.body.appendChild(iframe);
       setOpenModal(true);
 
@@ -122,6 +165,8 @@ export default function Forms() {
       setFullName('');
       setEmail('');
       setPhone('');
+    } else {
+      setIsEmpty(true);
     }
   };
 
@@ -144,13 +189,20 @@ export default function Forms() {
         }}
       >
         <TextContent>
+          <p>Faça a sua inscrição! ⬇️</p>
           <p>
-            Bem-vindo a 1º edição do <span>Exclusive Imob</span> 2024
+            Período de Inscrição:{' '}
+            <b>
+              <span>01/04 - 05/04</span>
+            </b>
           </p>
           <p>
-            Estamos felizes em tê-lo aqui. Para aproveitar todos os recursos e
-            benefícios da nossa comunidade, por favor, preencha o formulário
-            abaixo e inscreva-se.
+            <a href="https://docs.google.com/document/d/1nqKJnonAOKDXSGDa5yZw6TRmGt2qoh5hP1QcKeBAOBg/edit?usp=sharing">
+              <Box display="flex" alignItems="center">
+                <LinkIcon sx={{ color: '#31AC47' }} /> Acesse aqui o conteúdo do
+                curso <LinkIcon sx={{ color: '#31AC47' }} />
+              </Box>
+            </a>
           </p>
         </TextContent>
         <Box
@@ -193,6 +245,49 @@ export default function Forms() {
               '& input': {
                 color: '#FFF',
               },
+            }}
+          />
+        </Box>
+        <Box
+          mt={2}
+          sx={{
+            width: '75%',
+            '@media (max-width: 901px)': {
+              width: '75%',
+            },
+          }}
+        >
+          <TextField
+            id="input-with-icon-textfield-date"
+            placeholder="Data de Nascimento (Apenas números)"
+            value={date}
+            onChange={handleInputDateChange}
+            error={!!dateError}
+            helperText={dateError}
+            variant="outlined"
+            sx={{
+              width: '100%',
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#6E6E6E',
+                },
+                '&:hover fieldset': {
+                  borderColor: 'white',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'white',
+                },
+              },
+              '& input': {
+                color: '#FFF',
+              },
+            }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <EventIcon sx={{ color: '#fff' }} />
+                </InputAdornment>
+              ),
             }}
           />
         </Box>
@@ -282,9 +377,14 @@ export default function Forms() {
             }}
           />
         </Box>
+        {isEmpty && (
+          <Typography variant="body2" sx={{ color: 'red', mt: 2 }}>
+            A inscrição não pode ser enviada vazia.
+          </Typography>
+        )}
         <Box mt={3}>
           <Button
-            type="submit"
+            type="button"
             variant="contained"
             color="primary"
             sx={{ fontWeight: 'bold' }}
