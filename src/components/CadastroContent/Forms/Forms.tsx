@@ -203,7 +203,10 @@ export default function Forms() {
             Local: <span>Congregação - AD Valentina 1 </span>
           </p>
           <p>
-            <a href="https://docs.google.com/document/d/1nqKJnonAOKDXSGDa5yZw6TRmGt2qoh5hP1QcKeBAOBg/edit?usp=sharing">
+            <a
+              target="_blank"
+              href="https://docs.google.com/document/d/1nqKJnonAOKDXSGDa5yZw6TRmGt2qoh5hP1QcKeBAOBg/edit?usp=sharing"
+            >
               <Box
                 display="flex"
                 alignItems="center"
