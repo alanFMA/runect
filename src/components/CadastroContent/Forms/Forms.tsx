@@ -191,10 +191,13 @@ export default function Forms() {
         <TextContent>
           <p>Faça a sua inscrição! ⬇️</p>
           <p>
-            Período de Inscrição:{' '}
-            <b>
-              <span>01/04 - 05/04</span>
-            </b>
+            Período de Inscrição: <span>01/04 - 05/04</span>
+          </p>
+          <p>
+            Início das aulas: <span>06/04 às 14:00hrs </span>
+          </p>
+          <p>
+            Local: <span>Congregação - AD Valentina 1 </span>
           </p>
           <p>
             <a href="https://docs.google.com/document/d/1nqKJnonAOKDXSGDa5yZw6TRmGt2qoh5hP1QcKeBAOBg/edit?usp=sharing">
