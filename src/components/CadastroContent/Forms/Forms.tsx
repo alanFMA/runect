@@ -190,35 +190,38 @@ export default function Forms() {
       >
         <TextContent>
           <strong>
-            <h1 style={{ textAlign: 'center' }}>CADASTRO</h1>
+            <h1 style={{ textAlign: 'center' }}>INSCRIÇÃO</h1>
           </strong>
           <br />
-          <b>
-            <p>
-              Período de Inscrição: <span>01/04 - 05/04</span>
-            </p>
-            <p>
-              Início das aulas: <span>06/04 às 14:00hrs </span>
-            </p>
-            <p>
-              Local: <span>Congregação - AD Valentina 1 </span>
-            </p>
-            <p>
-              <a href="https://docs.google.com/document/d/1nqKJnonAOKDXSGDa5yZw6TRmGt2qoh5hP1QcKeBAOBg/edit?usp=sharing">
-                <Box display="flex" alignItems="center">
-                  <LinkIcon sx={{ color: '#31AC47' }} /> Acesse aqui o conteúdo
-                  do curso <LinkIcon sx={{ color: '#31AC47' }} />
-                </Box>
-              </a>
-            </p>
-          </b>
+          <p>
+            Período de Inscrição: <span>01/04 - 05/04</span>
+          </p>
+          <p>
+            Início das aulas: <span>06/04 às 14:00hrs </span>
+          </p>
+          <p>
+            Local: <span>Congregação - AD Valentina 1 </span>
+          </p>
+          <p>
+            <a href="https://docs.google.com/document/d/1nqKJnonAOKDXSGDa5yZw6TRmGt2qoh5hP1QcKeBAOBg/edit?usp=sharing">
+              <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="space-between"
+                marginTop="7%"
+              >
+                <LinkIcon sx={{ color: '#31AC47' }} /> Acesse aqui o conteúdo do
+                curso <LinkIcon sx={{ color: '#31AC47' }} />
+              </Box>
+            </a>
+          </p>
         </TextContent>
         <Box
-          mt={4}
+          mt={3}
           sx={{
             width: '75%',
             '@media (max-width: 901px)': {
-              width: '75%',
+              width: '90%',
             },
           }}
         >
@@ -261,7 +264,7 @@ export default function Forms() {
           sx={{
             width: '75%',
             '@media (max-width: 901px)': {
-              width: '75%',
+              width: '90%',
             },
           }}
         >
@@ -304,7 +307,7 @@ export default function Forms() {
           sx={{
             width: '75%',
             '@media (max-width: 901px)': {
-              width: '75%',
+              width: '90%',
             },
           }}
         >
@@ -347,7 +350,7 @@ export default function Forms() {
           sx={{
             width: '75%',
             '@media (max-width: 901px)': {
-              width: '75%',
+              width: '90%',
             },
           }}
         >

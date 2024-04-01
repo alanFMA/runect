@@ -15,8 +15,8 @@ export const TextContent = styled.div`
   text-align: justify;
 
   @media screen and (max-width: 901px) {
-    width: 77%;
-    font-size: 77%;
+    width: 90%;
+    font-size: 90%;
     justify-content: center;
   }
 
