@@ -194,7 +194,7 @@ export default function Forms() {
           </strong>
           <br />
           <p>
-            Período de Inscrição: <span>01/04 - 05/04</span>
+            Período de Inscrição: <span>03/04 - 05/04</span>
           </p>
           <p>
             Início das aulas: <span>06/04 às 14:00hrs </span>
