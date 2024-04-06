@@ -190,7 +190,7 @@ export default function Forms() {
       >
         <TextContent>
           <strong>
-            <h1 style={{ textAlign: 'center' }}>INSCRIÇÃO</h1>
+            <h1 style={{ textAlign: 'center' }}>INSCRIÇÕES ENCERRADAS</h1>
           </strong>
           <br />
           <p>
@@ -219,7 +219,7 @@ export default function Forms() {
             </a>
           </p>
         </TextContent>
-        <Box
+        {/* <Box
           mt={3}
           sx={{
             width: '75%',
@@ -406,7 +406,7 @@ export default function Forms() {
           >
             INSCREVA-SE
           </Button>
-        </Box>
+        </Box> */}
         <Modal
           open={openModal}
           onClose={handleClose}
