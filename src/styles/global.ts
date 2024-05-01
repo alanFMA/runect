@@ -13,8 +13,7 @@ export default createGlobalStyle`
     background: #000;
     background-image: url(${XBack});
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: 80%;
+    background-size: 100%;
     color: #FFF;
     -webkit-font-smoothing: antialiased;
     display: flex;

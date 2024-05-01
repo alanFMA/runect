@@ -9,15 +9,13 @@ export const Ranking = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 `;
 
 export const Aluno = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
-  margin: 15px auto;
-
+  margin: 15px 0;
+  width: 70%;
   img {
     width: 100px;
     height: 100px;
