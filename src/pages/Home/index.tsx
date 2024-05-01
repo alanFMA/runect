@@ -1,14 +1,15 @@
 import React from 'react';
 import Header from '../../components/Header';
 import CadastroContent from '../../components/CadastroContent';
+import VideoList from '../../components/VideoList';
 
-const Base: React.FC = () => (
-  <div>
+const Home: React.FC = () => (
+  <>
+    <Header />
     <main>
-      <Header />
-      <CadastroContent />
+      <VideoList />
     </main>
-  </div>
+  </>
 );
 
-export default Base;
+export default Home;

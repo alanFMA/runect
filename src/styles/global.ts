@@ -28,6 +28,7 @@ export default createGlobalStyle`
   }
 
   main {
+    width: 75vw;
     max-width: 1366px;
     height: 100vh;
   }
