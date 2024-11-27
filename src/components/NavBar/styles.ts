@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 
 const Logo = styled.img`
-  width: 40%;
+  width: 200px;
   height: auto;
 
-  @media screen and (min-width: 599px) {
-    width: 30%;
-  }
-
-  @media screen and (min-width: 899px) {
-    width: 20%;
+  @media screen and (max-width: 991px) {
+    width: 140px;
   }
 `;
 

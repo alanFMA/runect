@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useMediaQuery } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,14 +14,11 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import Logo from './styles';
+import logoRunect from '../../assets/logo-runect.svg';
 
-const pages = ['AULAS', 'MATERIAIS', 'RANKING'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['HOME', 'INFO', 'POLÍTICAS'];
 
 function NavBar() {
-  const logo =
-    'https://institutoteologar.com.br/wp-content/uploads/2023/03/Logo-Curso-Branco-1024x207.png';
-
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
   );
@@ -31,22 +29,25 @@ function NavBar() {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-  //   setAnchorElUser(event.currentTarget);
-  // };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  // const handleCloseUserMenu = () => {
-  //   setAnchorElUser(null);
-  // };
+  const isSmallScreen = useMediaQuery('(max-width:991px)');
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: '#313131' }}>
+    <AppBar
+      position="fixed"
+      sx={{ backgroundColor: 'rgba(244, 221, 25, 0.5)', boxShadow: 'none' }}
+    >
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ justifyContent: 'space-around' }}>
+        <Toolbar
+          disableGutters
+          sx={{
+            justifyContent: 'space-between',
+          }}
+        >
           <Box
             sx={{
               display: { xs: 'flex', md: 'none' },
@@ -85,11 +86,11 @@ function NavBar() {
                   key={page}
                   component={Link}
                   to={
-                    page === 'MATERIAIS'
-                      ? 'https://drive.google.com/drive/folders/1uxb_XZohFbB39jVn3LH_1mkx8XH_ihUO?usp=sharing'
+                    page === 'POLÍTICAS'
+                      ? 'politicas-de-privacidade'
                       : `/${page.toLocaleLowerCase()}`
                   }
-                  target={page === 'MATERIAIS' ? '_blank' : ''}
+                  target={page === 'POLÍTICAS' ? '_blank' : ''}
                   onClick={handleCloseNavMenu}
                 >
                   <Typography textAlign="center">{page}</Typography>
@@ -97,7 +98,7 @@ function NavBar() {
               ))}
             </Menu>
           </Box>
-          <Logo src={logo}></Logo>
+          <Logo src={logoRunect}></Logo>
           <Typography
             variant="h5"
             noWrap
@@ -117,7 +118,7 @@ function NavBar() {
           ></Typography>
           <Box
             sx={{
-              justifyContent: 'space-around',
+              justifyContent: 'space-between',
               display: {
                 width: '600px',
                 xs: 'none',
@@ -130,17 +131,29 @@ function NavBar() {
                 key={page}
                 component={Link}
                 to={
-                  page === 'MATERIAIS'
-                    ? 'https://drive.google.com/drive/folders/1uxb_XZohFbB39jVn3LH_1mkx8XH_ihUO?usp=sharing'
+                  page === 'POLÍTICAS'
+                    ? 'politicas-de-privacidade'
                     : `/${page.toLocaleLowerCase()}`
                 }
-                target={page === 'MATERIAIS' ? '_blank' : ''}
+                target={'_blank'}
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
                   color: 'white',
+                  fontSize: '13px',
+                  fontWeight: 'bold',
+                  paddingTop: '3px',
+                  height: '27px',
+                  minWidth: '125px',
+                  textAlign: 'center',
                   display: 'block',
-                  fontSize: '14px',
+                  borderRadius: '8px',
+                  background: '#0F3C19',
+                  transition: 'box-shadow 0.3s ease',
+                  '&:hover': {
+                    background: '#0F3C19',
+                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)',
+                  },
                 }}
               >
                 {page}

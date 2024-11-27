@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import XBack from '../assets/logosppopacity.png';
 
 export default createGlobalStyle`
   * {
@@ -9,28 +8,19 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  #root {
+    width: 100%;
+  }
+
   body {
-    background: #000;
-    background-image: url(${XBack});
-    background-position: center;
-    background-size: 100%;
-    color: #FFF;
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    justify-content: center;
-    z-index: -1000;
+    width: 100%;
   }
 
   body, input, button {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Epilogue', sans-serif;
     font-size: 16px;
   }
 
-  main {
-    width: 75vw;
-    max-width: 1366px;
-    height: 100vh;
-  }
 
 
   h1, h2, h3 h4, h5, h6, strong {
