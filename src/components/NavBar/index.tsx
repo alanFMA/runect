@@ -135,7 +135,9 @@ function NavBar() {
                     ? 'politicas-de-privacidade'
                     : `/${page.toLocaleLowerCase()}`
                 }
-                target={'_blank'}
+                target={
+                  page === 'POLÍTICAS' || page === 'INFO' ? '_blank' : '_self'
+                }
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,

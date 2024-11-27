@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { forwardRef, useState, ChangeEvent } from 'react';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -40,7 +40,8 @@ const formatPhone = (value: string): string => {
   return formattedValue;
 };
 
-export default function Forms() {
+const Forms = forwardRef<HTMLDivElement>((props, ref) => {
+  const { ...rest } = props;
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
@@ -114,7 +115,9 @@ export default function Forms() {
     width: 400,
     height: 400,
     bgcolor: '#1C1C1E',
+    color: 'white',
     border: '2px solid #000',
+    borderRadius: '8px',
     boxShadow: 24,
     p: 4,
     display: 'flex',
@@ -158,7 +161,8 @@ export default function Forms() {
 
     const iframe = document.createElement('iframe');
     iframe.style.display = 'none';
-    iframe.src = `https://docs.google.com/forms/d/e/1FAIpQLSfYwR1petegUsz_XolHKBguuWIR2kKN_Zeuog8XIbun9NGTIg/formResponse?entry.1281333293=${fullName}&entry.1906051504=${email}&entry.975664923=${phone}&entry.1234567890=${userType}`;
+    iframe.src = `https://docs.google.com/forms/d/e/1FAIpQLSfp-Nk2l2C6cFfd73l4K8boGEV9KhecqFo4fxn0I-fRjIMnTA/formResponse?entry.700511884=${fullName}&entry.278382277=${email}&entry.571064173=${phone}&entry.1811515776=${userType}`;
+
     document.body.appendChild(iframe);
     setOpenModal(true);
 
@@ -173,7 +177,7 @@ export default function Forms() {
   };
 
   return (
-    <FormsContent>
+    <FormsContent ref={ref} {...rest}>
       <FormsTitle>Formulário de Contato</FormsTitle>
       <Box
         sx={{
@@ -292,7 +296,7 @@ export default function Forms() {
         >
           <TextField
             id="input-with-icon-textfield-phone"
-            placeholder="Telefone com DD"
+            placeholder="Telefone com DDD"
             value={formatPhone(phone)}
             onChange={handleInputPhoneChange}
             error={!!phoneError}
@@ -387,6 +391,10 @@ export default function Forms() {
               color: 'white',
               backgroundColor: '#0F3C19',
               width: '200px',
+              '&:hover': {
+                backgroundColor: '#0F3C19',
+                filter: 'brightness(0.8)',
+              },
             }}
             onClick={HandleFormSubmit}
           >
@@ -418,4 +426,6 @@ export default function Forms() {
       </Box>
     </FormsContent>
   );
-}
+});
+
+export default Forms;

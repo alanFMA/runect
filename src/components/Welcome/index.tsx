@@ -13,7 +13,17 @@ import {
 import Phone from '../../assets/welcome-phone-teste.png';
 import Logo from '../../assets/logo-runect.svg';
 
-function Welcome() {
+interface WelcomeProps {
+  formRef: React.RefObject<HTMLDivElement>;
+}
+
+const Welcome: React.FC<WelcomeProps> = ({ formRef }) => {
+  const handleScrollToForm = () => {
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <WelcomeContent>
       <Container
@@ -49,6 +59,7 @@ function Welcome() {
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)',
               },
             }}
+            onClick={handleScrollToForm} // Adiciona o evento de clique
           >
             Saiba Mais
           </Button>
@@ -57,6 +68,6 @@ function Welcome() {
       </Container>
     </WelcomeContent>
   );
-}
+};
 
 export default Welcome;
