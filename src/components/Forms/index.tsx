@@ -192,6 +192,7 @@ const Forms = forwardRef<HTMLDivElement>((props, ref) => {
           '@media (max-width: 901px)': {
             width: '90%',
             marginBottom: '20px',
+            maxWidth: '920px',
           },
         }}
       >

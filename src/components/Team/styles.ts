@@ -36,6 +36,7 @@ export const TeamGrid = styled.div`
   @media screen and (max-width: 991px) {
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 40px;
+    margin: 25px 35px;
   }
 `;
 

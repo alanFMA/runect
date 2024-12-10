@@ -12,6 +12,7 @@ export const FooterContent = styled.main`
 
   @media screen and (max-width: 991px) {
     padding: 50px 0;
+    flex-direction: column;
   }
 `;
 
@@ -21,10 +22,20 @@ export const FooterDiv = styled.div`
   justify-content: center;
   width: 100%;
   height: 120px;
+
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
+    margin-top: 20px;
+  }
 `;
 
 export const FooterLogo = styled.div`
   width: 50%;
+  img {
+    width: 25%;
+    min-width: 200px;
+    max-width: 300px;
+  }
 `;
 export const FooterSocial = styled.div`
   width: 50%;
@@ -34,6 +45,12 @@ export const FooterSocial = styled.div`
   gap: 20px;
 
   img {
-    width: 60px;
+    width: 60%;
+    min-width: 40px;
+  }
+
+  @media screen and (max-width: 991px) {
+    height: 100px;
+    margin-top: 15px;
   }
 `;
